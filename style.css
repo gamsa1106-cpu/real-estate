@@ -166,6 +166,8 @@ select {
   color: inherit;
   display: block;
   cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
 }
 .card:hover {
   transform: translateY(-4px);

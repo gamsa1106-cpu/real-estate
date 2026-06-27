@@ -85,7 +85,7 @@ function renderCards() {
     const naverUrl   = `https://land.naver.com/search/?query=${encodeURIComponent(d.apt + " " + d.city)}`;
 
     return `
-      <a class="card ${isTrade ? "trade" : "rent"}" href="${naverUrl}" target="_blank" rel="noopener">
+      <div class="card ${isTrade ? "trade" : "rent"}" data-url="${naverUrl}">
         <div class="card-header">
           <span class="card-apt">${d.apt}</span>
           <span class="card-type ${isTrade ? "trade" : "rent"}">${d.type}</span>
@@ -102,10 +102,17 @@ function renderCards() {
         <div class="card-footer">
           <span>${d.city}</span>
           <span>${d.year}.${d.month}.${d.day}</span>
-          <span class="naver-link">네이버 부동산 →</span>
+          <span class="naver-link">🔗 네이버 부동산</span>
         </div>
-      </a>`;
+      </div>`;
   }).join("");
+
+  // 카드 클릭 이벤트 (innerHTML 후 등록)
+  grid.querySelectorAll(".card[data-url]").forEach(card => {
+    card.addEventListener("click", () => {
+      window.open(card.dataset.url, "_blank");
+    });
+  });
 }
 
 function renderPagination() {
