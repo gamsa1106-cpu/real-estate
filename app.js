@@ -14,9 +14,9 @@ function getPrice(d) {
 }
 
 function dateNum(d) {
-  const y = String(d.year  || 0);
-  const m = String(d.month || 0).padStart(2, "0");
-  const day = String(d.day || 0).padStart(2, "0");
+  const y   = String(d.year  || 0);
+  const m   = String(d.month || 0).padStart(2, "0");
+  const day = String(d.day   || 0).padStart(2, "0");
   return parseInt(y + m + day) || 0;
 }
 
@@ -57,10 +57,8 @@ function applyFilters() {
 function renderStats() {
   const trades = allData.filter(d => d.type === "매매");
   const rents  = allData.filter(d => d.type === "전세");
-
-  const avg = arr => arr.length
+  const avg    = arr => arr.length
     ? Math.round(arr.reduce((s, d) => s + getPrice(d), 0) / arr.length) : 0;
-
   const latest = allData.slice().sort((a, b) => dateNum(b) - dateNum(a))[0];
 
   document.getElementById("stat-total").textContent     = `${allData.length}건`;
@@ -149,51 +147,48 @@ async function loadData() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  // 도시 필터
-  document.querySelectorAll("#filter-city button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      setActiveBtn("filter-city", btn);
-      cityFilter = btn.dataset.value;
-      applyFilters();
-    });
-  });
-
-  // 유형 필터
-  document.querySelectorAll("#filter-type button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      setActiveBtn("filter-type", btn);
-      typeFilter = btn.dataset.value;
-      applyFilters();
-    });
-  });
-
-  // 가격대 필터
-  document.querySelectorAll("#filter-price button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      setActiveBtn("filter-price", btn);
-      priceMin = parseInt(btn.dataset.min);
-      priceMax = parseInt(btn.dataset.max);
-      applyFilters();
-    });
-  });
-
-  // 정렬
-  document.getElementById("sort-select").addEventListener("change", e => {
-    sortMode = e.target.value;
+// 도시 필터
+document.querySelectorAll("#filter-city button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setActiveBtn("filter-city", btn);
+    cityFilter = btn.dataset.value;
     applyFilters();
   });
-
-  // 검색
-  let timer;
-  document.getElementById("search-input").addEventListener("input", e => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      searchQ = e.target.value.trim();
-      applyFilters();
-    }, 300);
-  });
-
-  loadData();
 });
+
+// 유형 필터
+document.querySelectorAll("#filter-type button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setActiveBtn("filter-type", btn);
+    typeFilter = btn.dataset.value;
+    applyFilters();
+  });
+});
+
+// 가격대 필터
+document.querySelectorAll("#filter-price button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setActiveBtn("filter-price", btn);
+    priceMin = parseInt(btn.dataset.min);
+    priceMax = parseInt(btn.dataset.max);
+    applyFilters();
+  });
+});
+
+// 정렬
+document.getElementById("sort-select").addEventListener("change", e => {
+  sortMode = e.target.value;
+  applyFilters();
+});
+
+// 검색
+let searchTimer;
+document.getElementById("search-input").addEventListener("input", e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQ = e.target.value.trim();
+    applyFilters();
+  }, 300);
+});
+
+loadData();
