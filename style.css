@@ -162,10 +162,21 @@ select {
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   border-top: 3px solid #888;
   transition: transform 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.card.trade:hover { box-shadow: 0 8px 20px rgba(231,76,60,0.2); }
+.card.rent:hover  { box-shadow: 0 8px 20px rgba(52,152,219,0.2); }
+.naver-link {
+  color: #03c75a;
+  font-weight: 700;
+  font-size: 0.78rem;
 }
 .card.trade { border-top-color: #e74c3c; }
 .card.rent  { border-top-color: #3498db; }

@@ -81,12 +81,13 @@ function renderCards() {
   }
 
   grid.innerHTML = page.map(d => {
-    const isTrade   = d.type === "매매";
-    const priceVal  = isTrade ? d.price : d.deposit;
+    const isTrade    = d.type === "매매";
+    const priceVal   = isTrade ? d.price : d.deposit;
     const priceLabel = isTrade ? "매매가" : "보증금";
+    const naverUrl   = `https://land.naver.com/search/?query=${encodeURIComponent(d.apt + " " + d.city)}`;
 
     return `
-      <div class="card ${isTrade ? "trade" : "rent"}">
+      <a class="card ${isTrade ? "trade" : "rent"}" href="${naverUrl}" target="_blank" rel="noopener">
         <div class="card-header">
           <span class="card-apt">${d.apt}</span>
           <span class="card-type ${isTrade ? "trade" : "rent"}">${d.type}</span>
@@ -103,8 +104,9 @@ function renderCards() {
         <div class="card-footer">
           <span>${d.city}</span>
           <span>${d.year}.${d.month}.${d.day}</span>
+          <span class="naver-link">네이버 부동산 →</span>
         </div>
-      </div>`;
+      </a>`;
   }).join("");
 }
 
