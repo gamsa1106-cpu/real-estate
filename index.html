@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>광명·시흥 아파트 실거래가</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>🏢 광명·시흥 아파트 실거래가</h1>
+        <p id="updated">데이터 로딩 중...</p>
+      </div>
+      <div class="badge">국토교통부 공공데이터</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 요약 통계 -->
+    <section class="stats">
+      <div class="stat-card">
+        <span class="stat-label">전체 거래</span>
+        <span class="stat-value" id="stat-total">-</span>
+      </div>
+      <div class="stat-card red">
+        <span class="stat-label">매매 평균가</span>
+        <span class="stat-value" id="stat-trade-avg">-</span>
+      </div>
+      <div class="stat-card blue">
+        <span class="stat-label">전세 평균가</span>
+        <span class="stat-value" id="stat-rent-avg">-</span>
+      </div>
+      <div class="stat-card green">
+        <span class="stat-label">최근 거래일</span>
+        <span class="stat-value" id="stat-latest">-</span>
+      </div>
+    </section>
+
+    <!-- 필터 -->
+    <section class="filter-bar">
+      <div class="filter-group">
+        <label>도시</label>
+        <div class="btn-group" id="filter-city">
+          <button class="active" data-value="전체">전체</button>
+          <button data-value="광명시">광명시</button>
+          <button data-value="시흥시">시흥시</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>유형</label>
+        <div class="btn-group" id="filter-type">
+          <button class="active" data-value="전체">전체</button>
+          <button data-value="매매">매매</button>
+          <button data-value="전세">전세</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>정렬</label>
+        <select id="sort-select">
+          <option value="date">최신순</option>
+          <option value="price-desc">가격 높은순</option>
+          <option value="price-asc">가격 낮은순</option>
+          <option value="area-desc">면적 넓은순</option>
+        </select>
+      </div>
+      <div class="filter-group search-group">
+        <label>검색</label>
+        <input type="text" id="search-input" placeholder="아파트 이름 검색...">
+      </div>
+    </section>
+
+    <!-- 결과 수 -->
+    <div class="result-info">
+      <span id="result-count"></span>
+    </div>
+
+    <!-- 카드 목록 -->
+    <section class="card-grid" id="card-grid"></section>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination" id="pagination"></div>
+
+  </main>
+
+  <footer>
+    <p>데이터 출처: 국토교통부 아파트 실거래가 공개시스템 · 매일 오전 10시 자동 업데이트</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

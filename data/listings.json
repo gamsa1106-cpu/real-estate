@@ -1,0 +1,26 @@
+{
+  "updated_at": "2026-06-27 09:00",
+  "total": 20,
+  "data": [
+    {"type":"매매","city":"광명시","apt":"광명역자이","dong":"일직동","area":84.99,"floor":"15","price":65000,"deposit":null,"year":"2026","month":"6","day":"20","built_year":"2018"},
+    {"type":"매매","city":"광명시","apt":"광명역자이","dong":"일직동","area":59.97,"floor":"8","price":52000,"deposit":null,"year":"2026","month":"6","day":"18","built_year":"2018"},
+    {"type":"전세","city":"광명시","apt":"광명역자이","dong":"일직동","area":84.99,"floor":"12","price":null,"deposit":42000,"year":"2026","month":"6","day":"15","built_year":"2018"},
+    {"type":"매매","city":"광명시","apt":"철산래미안자이","dong":"철산동","area":114.97,"floor":"20","price":89000,"deposit":null,"year":"2026","month":"6","day":"10","built_year":"2020"},
+    {"type":"전세","city":"광명시","apt":"철산래미안자이","dong":"철산동","area":84.99,"floor":"5","price":null,"deposit":55000,"year":"2026","month":"6","day":"8","built_year":"2020"},
+    {"type":"매매","city":"광명시","apt":"하안두산위브","dong":"하안동","area":59.94,"floor":"3","price":38000,"deposit":null,"year":"2026","month":"5","day":"28","built_year":"2010"},
+    {"type":"전세","city":"광명시","apt":"하안두산위브","dong":"하안동","area":59.94,"floor":"9","price":null,"deposit":28000,"year":"2026","month":"5","day":"25","built_year":"2010"},
+    {"type":"매매","city":"광명시","apt":"광명푸르지오","dong":"광명동","area":74.97,"floor":"11","price":47000,"deposit":null,"year":"2026","month":"5","day":"20","built_year":"2015"},
+    {"type":"전세","city":"광명시","apt":"광명푸르지오","dong":"광명동","area":74.97,"floor":"7","price":null,"deposit":33000,"year":"2026","month":"5","day":"18","built_year":"2015"},
+    {"type":"매매","city":"광명시","apt":"소하e편한세상","dong":"소하동","area":84.87,"floor":"14","price":56000,"deposit":null,"year":"2026","month":"5","day":"12","built_year":"2017"},
+    {"type":"매매","city":"시흥시","apt":"시흥배곧한울아이파크","dong":"정왕동","area":84.99,"floor":"18","price":55000,"deposit":null,"year":"2026","month":"6","day":"22","built_year":"2019"},
+    {"type":"매매","city":"시흥시","apt":"시흥배곧한울아이파크","dong":"정왕동","area":59.98,"floor":"6","price":41000,"deposit":null,"year":"2026","month":"6","day":"19","built_year":"2019"},
+    {"type":"전세","city":"시흥시","apt":"시흥배곧한울아이파크","dong":"정왕동","area":84.99,"floor":"10","price":null,"deposit":36000,"year":"2026","month":"6","day":"17","built_year":"2019"},
+    {"type":"매매","city":"시흥시","apt":"시흥은계푸르지오","dong":"은계동","area":74.97,"floor":"7","price":43000,"deposit":null,"year":"2026","month":"6","day":"14","built_year":"2021"},
+    {"type":"전세","city":"시흥시","apt":"시흥은계푸르지오","dong":"은계동","area":74.97,"floor":"15","price":null,"deposit":30000,"year":"2026","month":"6","day":"11","built_year":"2021"},
+    {"type":"매매","city":"시흥시","apt":"목감중흥S클래스","dong":"목감동","area":84.92,"floor":"12","price":48000,"deposit":null,"year":"2026","month":"6","day":"5","built_year":"2022"},
+    {"type":"전세","city":"시흥시","apt":"목감중흥S클래스","dong":"목감동","area":84.92,"floor":"3","price":null,"deposit":32000,"year":"2026","month":"5","day":"30","built_year":"2022"},
+    {"type":"매매","city":"시흥시","apt":"능곡한신휴플러스","dong":"능곡동","area":59.94,"floor":"9","price":35000,"deposit":null,"year":"2026","month":"5","day":"26","built_year":"2008"},
+    {"type":"전세","city":"시흥시","apt":"능곡한신휴플러스","dong":"능곡동","area":59.94,"floor":"4","price":null,"deposit":22000,"year":"2026","month":"5","day":"22","built_year":"2008"},
+    {"type":"매매","city":"시흥시","apt":"시흥장현지구아이파크","dong":"장현동","area":101.98,"floor":"22","price":62000,"deposit":null,"year":"2026","month":"5","day":"15","built_year":"2023"}
+  ]
+}
