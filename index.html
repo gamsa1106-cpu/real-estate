@@ -40,6 +40,13 @@
       </div>
     </section>
 
+    <!-- 범례 -->
+    <div class="legend">
+      <span class="legend-item"><span class="legend-dot trade"></span>매매 거래</span>
+      <span class="legend-item"><span class="legend-dot rent"></span>전세 거래</span>
+      <span class="legend-note">※ 색상은 거래 유형 구분입니다 (가격 변동 아님)</span>
+    </div>
+
     <!-- 필터 -->
     <section class="filter-bar">
       <div class="filter-group">
@@ -56,6 +63,16 @@
           <button class="active" data-value="전체">전체</button>
           <button data-value="매매">매매</button>
           <button data-value="전세">전세</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>가격대</label>
+        <div class="btn-group" id="filter-price">
+          <button class="active" data-value="전체">전체</button>
+          <button data-value="~3억">~3억</button>
+          <button data-value="3~5억">3~5억</button>
+          <button data-value="5~7억">5~7억</button>
+          <button data-value="7억~">7억~</button>
         </div>
       </div>
       <div class="filter-group">

@@ -63,6 +63,35 @@ main {
 .stat-label { font-size: 0.78rem; color: #888; }
 .stat-value { font-size: 1.3rem; font-weight: 700; color: #1e3a5f; }
 
+/* Legend */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #555;
+  font-weight: 600;
+}
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+.legend-dot.trade { background: #e74c3c; }
+.legend-dot.rent  { background: #3498db; }
+.legend-note {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-left: 4px;
+}
+
 /* Filter */
 .filter-bar {
   background: white;

@@ -2,10 +2,11 @@ const PAGE_SIZE = 12;
 let allData = [];
 let filtered = [];
 let currentPage = 1;
-let cityFilter = "전체";
-let typeFilter = "전체";
-let sortMode  = "date";
-let searchQ   = "";
+let cityFilter  = "전체";
+let typeFilter  = "전체";
+let priceFilter = "전체";
+let sortMode    = "date";
+let searchQ     = "";
 
 async function loadData() {
   try {
@@ -22,10 +23,21 @@ async function loadData() {
   }
 }
 
+function inPriceRange(d) {
+  const val = d.type === "매매" ? (d.price || 0) : (d.deposit || 0);
+  if (priceFilter === "전체") return true;
+  if (priceFilter === "~3억")  return val < 30000;
+  if (priceFilter === "3~5억") return val >= 30000 && val < 50000;
+  if (priceFilter === "5~7억") return val >= 50000 && val < 70000;
+  if (priceFilter === "7억~")  return val >= 70000;
+  return true;
+}
+
 function applyFilters() {
   filtered = allData.filter(d => {
     if (cityFilter !== "전체" && d.city !== cityFilter) return false;
     if (typeFilter !== "전체" && d.type !== typeFilter) return false;
+    if (!inPriceRange(d)) return false;
     if (searchQ && !d.apt.toLowerCase().includes(searchQ.toLowerCase())) return false;
     return true;
   });
@@ -171,6 +183,15 @@ document.querySelectorAll("#filter-type button").forEach(btn => {
     document.querySelectorAll("#filter-type button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     typeFilter = btn.dataset.value;
+    applyFilters();
+  });
+});
+
+document.querySelectorAll("#filter-price button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#filter-price button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    priceFilter = btn.dataset.value;
     applyFilters();
   });
 });
