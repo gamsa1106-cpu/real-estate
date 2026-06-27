@@ -82,7 +82,7 @@ function renderCards() {
     const isTrade    = d.type === "매매";
     const priceVal   = isTrade ? d.price : d.deposit;
     const priceLabel = isTrade ? "매매가" : "보증금";
-    const naverUrl   = `https://land.naver.com/search/?query=${encodeURIComponent(d.apt + " " + d.city)}`;
+    const naverUrl   = `https://new.land.naver.com/search?q=${encodeURIComponent(d.apt)}`;
 
     return `
       <div class="card ${isTrade ? "trade" : "rent"}" data-url="${naverUrl}">
