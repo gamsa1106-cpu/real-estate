@@ -82,11 +82,11 @@ function renderCards() {
     const isTrade    = d.type === "매매";
     const priceVal   = isTrade ? d.price : d.deposit;
     const priceLabel = isTrade ? "매매가" : "보증금";
-    const tradeType  = isTrade ? "RETAIL" : "LEASE";
-    const naverUrl   = `https://new.land.naver.com/search?q=${encodeURIComponent(d.apt)}&a=APT&e=${tradeType}`;
 
     return `
-      <div class="card ${isTrade ? "trade" : "rent"}" data-url="${naverUrl}">
+      <div class="card ${isTrade ? "trade" : "rent"}"
+           data-apt="${d.apt}"
+           data-trade="${d.type}">
         <div class="card-header">
           <span class="card-apt">${d.apt}</span>
           <span class="card-type ${isTrade ? "trade" : "rent"}">${d.type}</span>
@@ -108,12 +108,17 @@ function renderCards() {
       </div>`;
   }).join("");
 
-  // 카드 클릭 이벤트 (innerHTML 후 등록)
-  grid.querySelectorAll(".card[data-url]").forEach(card => {
-    card.addEventListener("click", () => {
-      window.open(card.dataset.url, "_blank");
-    });
-  });
+  // 이벤트 위임: 그리드 전체에 클릭 한 번만 등록
+  grid.onclick = (e) => {
+    const card = e.target.closest(".card[data-apt]");
+    if (!card) return;
+    const apt   = card.dataset.apt;
+    const type  = card.dataset.trade === "매매" ? "RETAIL" : "LEASE";
+    const url   = "https://new.land.naver.com/search?q="
+                + encodeURIComponent(apt)
+                + "&a=APT&e=" + type;
+    location.href = url;
+  };
 }
 
 function renderPagination() {
